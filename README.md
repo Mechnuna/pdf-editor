@@ -17,7 +17,13 @@ python3.12 -m venv venv
 brew install uv
 ./build_mac.sh arm64     # Apple Silicon → dist/PDF-Editor-<версия>-AppleSilicon.dmg
 ./build_mac.sh x86_64    # Intel (на M-маке собирается через Rosetta) → …-Intel.dmg
+./build_mac.sh arm64 11  # то же для macOS 11 Big Sur → …-AppleSilicon-macOS11.dmg
+./build_mac.sh x86_64 11 # → …-Intel-macOS11.dmg
 ```
+
+Сборки для macOS 11 используют PySide6 6.7 (`requirements-build-macos11.txt`) —
+последнюю версию Qt, собранную под Big Sur. Скрипт сам проверяет, что ни одна
+библиотека внутри приложения не требует macOS новее заявленной.
 
 Работает на macOS 12 Monterey и новее. Python для сборки берётся портативный
 (python-build-standalone), Qt — PySide6 6.8 LTS: Python из Homebrew и Qt 6.12

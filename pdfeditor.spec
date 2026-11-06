@@ -1,7 +1,10 @@
 # PyInstaller: сборка PDF Editor.app. Запускается из build_mac.sh.
 # -*- mode: python ; coding: utf-8 -*-
 
+import os
+
 VERSION = "0.1.0"
+MIN_MACOS = os.environ.get("PDFEDITOR_MIN_MACOS", "12.0")  # задаёт build_mac.sh
 
 a = Analysis(
     ["main.py"],
@@ -30,7 +33,7 @@ app = BUNDLE(
     info_plist={
         "CFBundleDisplayName": "PDF Editor",
         "CFBundleShortVersionString": VERSION,
-        "LSMinimumSystemVersion": "12.0",
+        "LSMinimumSystemVersion": MIN_MACOS,
         "NSHighResolutionCapable": True,
         "NSRequiresAquaSystemAppearance": False,
         # «Открыть с помощью → PDF Editor» в Finder

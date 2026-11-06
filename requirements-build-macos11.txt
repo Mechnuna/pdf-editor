@@ -1,0 +1,5 @@
+# Сборка для macOS 11 Big Sur: Qt 6.7 — последняя ветка, собранная под macOS 11
+pymupdf==1.27.1
+PySide6-Essentials==6.7.3
+fonttools==4.68.0
+pyinstaller==6.22.3
